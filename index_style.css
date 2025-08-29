@@ -1,0 +1,199 @@
+/* General */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #585446ff, #0a0e47ff);
+    color: black;
+    font-style: italic;
+    overflow-x: hidden; /* ✅ Prevent horizontal scroll */
+}
+
+a { 
+    color: black; 
+    font-style: italic; 
+    text-decoration: none; 
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #000;
+    color: #fff;
+    position: relative;
+}
+
+header h1 { 
+    margin: 0; 
+    font-size: 24px; 
+    font-style: italic; 
+}
+
+nav {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+nav a, nav span {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    color: white;
+    display: block;
+}
+
+nav a:hover { 
+    background: #222; 
+}
+
+.menu-toggle { 
+    font-size: 28px; 
+    cursor: pointer; 
+}
+
+/* Slideshow */
+.slideshow {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active { 
+    opacity: 1; 
+}
+
+.slideshow::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+}
+
+.slideshow-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 0 15px;
+}
+
+.slideshow-text h2 { 
+    font-size: 28px; 
+    margin: 0; 
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 22px;
+    background: #ff5722;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cta-btn:hover { 
+    background: #e64a19; 
+    transform: scale(1.05); 
+}
+
+/* Sections */
+.sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    height: 200px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.card h3, .card p, .card a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.card:hover { 
+    transform: scale(1.03); 
+}
+
+/* Book Table */
+.book-table { 
+    text-align: center; 
+    padding: 40px 20px; 
+}
+
+.book-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    padding: 14px;
+    font-size: 18px;
+    font-style: italic;
+    background: linear-gradient(135deg, #ec8611ff, #faa638ff);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    text-decoration: none;
+    color: black;
+}
+
+.book-btn:hover { 
+    transform: scale(1.05); 
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    color: #fff;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+    .slideshow { height: 250px; }
+    .slideshow-text h2 { font-size: 20px; }
+    .sections { grid-template-columns: 1fr; }
+    .card { height: 180px; }
+}
